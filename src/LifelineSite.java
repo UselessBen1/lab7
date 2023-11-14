@@ -1,4 +1,4 @@
-public class LifelineSite {
+public class LifelineSite extends Site{
     private double _units;
     private double _rate;
 
@@ -7,11 +7,15 @@ public class LifelineSite {
     public LifelineSite(double units, double rate) {
         this._units = units;
         this._rate = rate;
-        this.base = base;
     }
-    public double getBillableAmount() {
+
+    public double getBaseAmount() {
         double base = this._units * this._rate;
+        return base;
+    }
+
+    public double getTaxAmount() {
         double tax = base * Site.TAX_RATE;
-        return base + tax;
+        return tax;
     }
 }
